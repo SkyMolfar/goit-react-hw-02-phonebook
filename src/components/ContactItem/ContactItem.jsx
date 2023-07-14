@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ContactInfo, ContactItemContainer, ContactName, ContactNumber, DeleteButton } from './ContactItem.styled';
 
-export class ContactItem extends Component {
-  handleDelete = () => {
-    const { id, onDeleteContact } = this.props;
+export const ContactItem = ({ id, name, number, onDeleteContact }) => {
+  const handleDelete = () => {
     onDeleteContact(id);
   };
 
-  render() {
-    const { name, number } = this.props;
-    return (
-      <ContactItemContainer>
-        <ContactInfo>
-          <ContactName>{name}</ContactName>
-          <ContactNumber>{number}</ContactNumber>
-        </ContactInfo>
-        <DeleteButton onClick={this.handleDelete}>Видалити</DeleteButton>
-      </ContactItemContainer>
-    );
-  }
-}
+  return (
+    <ContactItemContainer>
+      <ContactInfo>
+        <ContactName>{name}</ContactName>
+        <ContactNumber>{number}</ContactNumber>
+      </ContactInfo>
+      <DeleteButton onClick={handleDelete}>Видалити</DeleteButton>
+    </ContactItemContainer>
+  );
+};
 
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
@@ -28,6 +24,7 @@ ContactItem.propTypes = {
   number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
+
 
 
 
