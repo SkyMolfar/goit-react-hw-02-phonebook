@@ -26,6 +26,7 @@ export class App extends Component {
     }
   }
 
+
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
 
@@ -34,7 +35,6 @@ export class App extends Component {
     }
   }
 
-  
   addContact = (name, number) => {
     const { contacts } = this.state;
 
