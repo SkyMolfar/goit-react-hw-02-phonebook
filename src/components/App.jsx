@@ -17,6 +17,7 @@ export class App extends Component {
     filter: '',
   };
 
+
   componentDidMount() {
     const savedContacts = localStorage.getItem('contacts');
 
@@ -33,6 +34,7 @@ export class App extends Component {
     }
   }
 
+  
   addContact = (name, number) => {
     const { contacts } = this.state;
 
